@@ -1,6 +1,7 @@
 package vn.alovoice.ideabox;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -101,7 +102,12 @@ public class listIdeaFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String ideaItem = mListIdeaAdapter.getItem(position);
 
-                Toast.makeText(getActivity(), ideaItem, Toast.LENGTH_LONG).show();
+                // Toast.makeText(getActivity(), ideaItem, Toast.LENGTH_LONG).show();
+
+                Intent intent = new Intent(getActivity(), DetailActivity.class)
+                       .putExtra(Intent.EXTRA_TEXT, ideaItem);
+                startActivity(intent);
+
             }
         });
 
